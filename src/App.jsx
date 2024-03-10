@@ -1,7 +1,13 @@
+import {isMobile} from 'react-device-detect';
+
 export default function App() {
-  return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
-  )
+  const renderContent = () => {
+    if (isMobile) {
+      return <div> This content is available only on mobile</div>
+    }
+    return <div> ...content </div>
+  }
+
+  return renderContent();
 }
+
