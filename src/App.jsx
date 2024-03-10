@@ -1,13 +1,14 @@
-import {isMobile} from 'react-device-detect';
+import {useBoolean} from "@chakra-ui/react"
 
 export default function App() {
-  const renderContent = () => {
-    if (isMobile) {
-      return <div> This content is available only on mobile</div>
-    }
-    return <div> ...content </div>
-  }
+  const [flag, setFlag] = useBoolean()
 
-  return renderContent();
+  return (
+    <>
+    <p>Boolean state: {flag.toString()}</p>
+    <button onClick={setFlag.toggle}>Click me to change state</button> {/*toggle is function to negate the boolean value*/}
+    </>
+  )
+
 }
 
